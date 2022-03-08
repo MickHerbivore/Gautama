@@ -1,0 +1,27 @@
+<div *ngIf="auth.user$ | async as user; else inicio">
+    <h1>Bienvenido {{ user.name }}</h1>
+
+</div>
+
+
+<ng-template #inicio>
+    <div class="row p-5">
+        <div class="col">
+            <div class="">
+                <div class="card">
+                    <div class="card-header">
+                        Gautama
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Bienvenid@ a <strong>Gautama</strong></h5>
+                        <p class="card-text">Aquí podrás encontrar información sobre las principales criptomonedas.</p>
+                        <p class="card-text">Para comenzar, debes iniciar sesión.</p>
+                        <div class="d-grid gap-2 col-4 mx-auto">
+                            <a (click)="auth.loginWithRedirect()" class="btn btn-success">Iniciar sesión</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>

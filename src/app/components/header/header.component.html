@@ -1,0 +1,34 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">{{ title }}</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li *ngIf="auth.isAuthenticated$ | async" class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li *ngIf="auth.isAuthenticated$ | async" class="nav-item">
+                    <a class="nav-link" href="#">Markets</a>
+                </li>
+            </ul>
+
+
+            <form class="d-flex">
+                <span class="navbar-text px-3" *ngIf="auth.user$ | async as user">
+                    Bienvenido, {{ user.name }}
+                </span>
+                <ng-container *ngIf="auth.isAuthenticated$ | async; else loggedOut">
+                    <button class="btn btn-outline-danger" (click)="auth.logout({ returnTo: document.location.origin })">
+                      Cerrar Sesión
+                    </button>
+                </ng-container>
+
+                <ng-template #loggedOut>
+                    <button class="btn btn-outline-light" (click)="auth.loginWithRedirect()">Iniciar Sesión</button>
+                </ng-template>
+            </form>
+        </div>
+    </div>
+</nav>
