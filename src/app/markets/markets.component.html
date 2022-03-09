@@ -1,0 +1,7 @@
+<div class="py-3">
+    <div class="row row-cols-1 row-cols-xs-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 g-4">
+        <div class="col" *ngFor="let market of markets">
+            <app-market-card [market]="market"></app-market-card>
+        </div>
+    </div>
+</div>
