@@ -7,13 +7,18 @@ import { Observable } from 'rxjs';
 })
 export class CoinGeckoService {
 
-  baseUrl = 'https://api.coingecko.com/api/v3/';
-  marketsUri = 'coins/markets';
-  currency = 'CLP';
+  private baseUrl = 'https://api.coingecko.com/api/v3/';
+  private marketsUri = 'coins/markets';
+  private currency = 'CLP';
+  private coinsUri = 'coins/';
 
   constructor( private http: HttpClient ) { }
 
   getMarkets(): Observable<any> {
     return this.http.get(`${ this.baseUrl }${ this.marketsUri }?vs_currency=${ this.currency }`);
+  }
+
+  getCoin( id: string ): Observable<any> {
+    return this.http.get(`${ this.baseUrl }${ this.coinsUri }${ id }`);
   }
 }

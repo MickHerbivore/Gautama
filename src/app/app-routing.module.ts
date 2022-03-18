@@ -6,7 +6,7 @@ import { AuthGuard } from './guards/auth.guard';
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'markets', loadChildren: () => import('./markets/markets.module').then(m => m.MarketsModule), canActivate: [AuthGuard] },
-  { path: '**', redirectTo: '/home', pathMatch: 'full' }
+  { path: '', redirectTo: '/home', pathMatch: 'full' }
 ];
 
 @NgModule({

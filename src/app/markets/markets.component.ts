@@ -17,11 +17,11 @@ export class MarketsComponent implements OnInit {
   }
 
   getMarkets() {
-    this.coinGeckoService.getMarkets().subscribe(resp => {
-
-      console.log(resp);
-      this.markets = resp;
-
+    this.coinGeckoService.getMarkets().subscribe({
+      next: (resp) => {
+        console.log(resp);
+        this.markets = resp;
+      }
     })
   }
 

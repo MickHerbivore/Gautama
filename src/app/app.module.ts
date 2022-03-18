@@ -8,6 +8,9 @@ import { HomeComponent } from './components/home/home.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
+import { registerLocaleData } from '@angular/common';
+import localeCl from '@angular/common/locales/es-CL';
+registerLocaleData(localeCl, 'cl')
 
 @NgModule({
   declarations: [
