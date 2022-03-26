@@ -1,27 +1,49 @@
-<div *ngIf="auth.user$ | async as user; else inicio">
-    <h1>Bienvenido {{ user.name }}</h1>
+<ng-template #contenido>
+    <div *ngIf="auth.user$ | async as user; else inicio">
+        <h1>Hola {{ user.name }}!!!</h1>
+        <hr>
+    </div>
 
-</div>
+    <p class="h2">Revisa las criptomonedas más búscadas:</p>
 
+    <div *ngFor="let coin of trendingCoins.coins" class="p-2">
+        <div class="card">
+            <div class="card-body">
+                <img [src]="coin.item.small" class="card-img-top px-3" alt="..." style="width: 5rem;">
+                <span class="card-text">{{ coin.item.name }}</span>
+                <a *ngIf="auth.user$ | async" [routerLink]="['/markets/coin/', coin.item.id]" class="btn btn-success align-self-end float-end">Más Info</a>
+            </div>
+        </div>
+    </div>
 
-<ng-template #inicio>
-    <div class="row p-5">
-        <div class="col">
-            <div class="">
-                <div class="card">
-                    <div class="card-header">
-                        Gautama
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Bienvenid@ a <strong>Gautama</strong></h5>
-                        <p class="card-text">Aquí podrás encontrar información sobre las principales criptomonedas.</p>
-                        <p class="card-text">Para comenzar, debes iniciar sesión.</p>
-                        <div class="d-grid gap-2 col-4 mx-auto">
-                            <a (click)="auth.loginWithRedirect()" class="btn btn-success">Iniciar sesión</a>
+    <ng-template #inicio>
+        <div class="row p-5">
+            <div class="col">
+                <div class="">
+                    <div class="card">
+                        <div class="card-header">
+                            Gautama
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Bienvenid@ a <strong>Gautama</strong></h5>
+                            <p class="card-text">Aquí podrás encontrar información sobre las principales criptomonedas.</p>
+                            <p class="card-text">Para comenzar, debes iniciar sesión.</p>
+                            <div class="d-grid gap-2 col-4 mx-auto">
+                                <a (click)="auth.loginWithRedirect()" class="btn btn-success">Iniciar sesión</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </ng-template>
+
 </ng-template>
+
+<div *ngIf="auth.isLoading$ | async ; else contenido">
+    <div class="d-flex justify-content-center m-5">
+        <div class="spinner-border " role="status " style="width: 3rem; height: 3rem; ">
+            <span class="visually-hidden ">Cargando...</span>
+        </div>
+    </div>
+</div>

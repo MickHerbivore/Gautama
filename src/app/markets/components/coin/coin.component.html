@@ -1,84 +1,94 @@
-<div class="row">
+<div *ngIf="coin.name; else loading">
+    <div class="row">
 
-    <div class="card mb-3 border-0" style="max-width: 600px;">
-        <div class="row g-0">
-            <div class="col-md-4">
-                <img [src]="coin.image.large" class="img-fluid rounded-start" alt="...">
-            </div>
-            <div class="col-md-8 px-4">
-                <div class="card-body">
-                    <h1 class="card-title">{{ coin.name }}</h1>
+        <div class="card mb-3 border-0">
+            <div class="row g-0 w-50">
+                <div class="col-md-4">
+                    <img [src]="coin.image.large" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8 px-4">
+                    <div class="card-body">
+                        <h1 class="card-title">{{ coin.name }}</h1>
 
-                    <ul class="list-group list-group-flush">
-                        <li *ngIf="coin.links.homepage[0]" class="list-group-item">
-                            <a [href]="coin.links.homepage[0]" class="card-link link-success" target="_blank" rel="noopener noreferrer"><em class="fa-solid fa-earth-americas"></em> Sitio oficial</a>
-                        </li>
-                        <li *ngIf="coin.links.official_forum_url[0]" class="list-group-item">
-                            <a [href]="coin.links.official_forum_url[0]" class="card-link link-success" target="_blank" rel="noopener noreferrer"><em class="fa-solid fa-people-group"></em> Foro oficial</a>
-                        </li>
-                        <li *ngIf="coin.links.repos_url.bitbucket[0]" class="list-group-item">
-                            <a [href]="coin.links.repos_url.bitbucket[0]" class="card-link link-success" target="_blank" rel="noopener noreferrer"><em class="fa-brands fa-bitbucket"></em> Repositorio Git</a>
-                        </li>
-                        <li *ngIf="coin.links.repos_url.github[0]" class="list-group-item">
-                            <a [href]="coin.links.repos_url.github[0]" class="card-link link-success" target="_blank" rel="noopener noreferrer"><em class="fa-brands fa-github"></em> Repositorio Git</a>
-                        </li>
-                    </ul>
+                        <ul class="list-group list-group-flush">
+                            <li *ngIf="coin.links.homepage[0]" class="list-group-item">
+                                <a [href]="coin.links.homepage[0]" class="card-link link-success" target="_blank" rel="noopener noreferrer"><em class="fa-solid fa-earth-americas"></em> Sitio oficial</a>
+                            </li>
+                            <li *ngIf="coin.links.official_forum_url[0]" class="list-group-item">
+                                <a [href]="coin.links.official_forum_url[0]" class="card-link link-success" target="_blank" rel="noopener noreferrer"><em class="fa-solid fa-people-group"></em> Foro oficial</a>
+                            </li>
+                            <li *ngIf="coin.links.repos_url.bitbucket[0]" class="list-group-item">
+                                <a [href]="coin.links.repos_url.bitbucket[0]" class="card-link link-success" target="_blank" rel="noopener noreferrer"><em class="fa-brands fa-bitbucket"></em> Repositorio Git</a>
+                            </li>
+                            <li *ngIf="coin.links.repos_url.github[0]" class="list-group-item">
+                                <a [href]="coin.links.repos_url.github[0]" class="card-link link-success" target="_blank" rel="noopener noreferrer"><em class="fa-brands fa-github"></em> Repositorio Git</a>
+                            </li>
+                        </ul>
 
+                    </div>
                 </div>
             </div>
         </div>
+
     </div>
 
-</div>
+    <div class="row py-4">
+        <div class="col-12 py-4">
+            <p class="h1 text-center">Precios</p>
+        </div>
+        <div class="col-md-3">
 
-<div class="row py-4">
-    <div class="col-12 py-4">
-        <p class="h1 text-center">Precios</p>
-    </div>
-    <div class="col-md-3">
-
-        <div class="card text-center border-warning mb-3" style="max-width: 18rem;">
-            <div class="card-body text-dark">
-                <h3 class="card-title">CLP</h3>
-                <p class="card-text h2 text-success">{{ coin.market_data.current_price.clp | currency:'CLP':'symbol-narrow':'1.0-0':'cl' }}</p>
+            <div class="card text-center border-warning mb-3" style="max-width: 18rem;">
+                <div class="card-body text-dark">
+                    <h3 class="card-title">CLP</h3>
+                    <p class="card-text h2 text-success">{{ coin.market_data.current_price.clp | currency:'CLP':'symbol-narrow':'1.0-0':'cl' }}</p>
+                </div>
             </div>
+
         </div>
 
-    </div>
+        <div class="col-md-3">
 
-    <div class="col-md-3">
-
-        <div class="card text-center border-warning mb-3" style="max-width: 18rem;">
-            <div class="card-body text-dark">
-                <h3 class="card-title">USD</h3>
-                <p class="card-text h2 text-success">{{ coin.market_data.current_price.usd | currency:'USD':'symbol-narrow':'1.0-10' }}</p>
+            <div class="card text-center border-warning mb-3" style="max-width: 18rem;">
+                <div class="card-body text-dark">
+                    <h3 class="card-title">USD</h3>
+                    <p class="card-text h2 text-success">{{ coin.market_data.current_price.usd | currency:'USD':'symbol-narrow':'1.0-10' }}</p>
+                </div>
             </div>
+
         </div>
 
-    </div>
+        <div class="col-md-3">
 
-    <div class="col-md-3">
-
-        <div class="card text-center border-warning mb-3" style="max-width: 18rem;">
-            <div class="card-body text-dark">
-                <h3 class="card-title">EUR</h3>
-                <p class="card-text h2 text-success">{{ coin.market_data.current_price.eur | currency:'EUR':'symbol-narrow':'1.0-10' }}</p>
+            <div class="card text-center border-warning mb-3" style="max-width: 18rem;">
+                <div class="card-body text-dark">
+                    <h3 class="card-title">EUR</h3>
+                    <p class="card-text h2 text-success">{{ coin.market_data.current_price.eur | currency:'EUR':'symbol-narrow':'1.0-10' }}</p>
+                </div>
             </div>
+
         </div>
 
-    </div>
+        <div class="col-md-3">
 
-    <div class="col-md-3">
-
-        <div class="card text-center border-warning mb-3" style="max-width: 18rem;">
-            <div class="card-body text-dark">
-                <h3 class="card-title">CAD</h3>
-                <p class="card-text h2 text-success">{{ coin.market_data.current_price.cad | currency:'CAD':'symbol-narrow':'1.0-10' }}</p>
+            <div class="card text-center border-warning mb-3" style="max-width: 18rem;">
+                <div class="card-body text-dark">
+                    <h3 class="card-title">CAD</h3>
+                    <p class="card-text h2 text-success">{{ coin.market_data.current_price.cad | currency:'CAD':'symbol-narrow':'1.0-10' }}</p>
+                </div>
             </div>
-        </div>
 
+        </div>
     </div>
 </div>
 
 
 <!-- <p [innerHtml]="coin.description.en" class="card-text"></p> -->
+
+<ng-template #loading>
+    <div class="d-flex justify-content-center m-5">
+        <div class="spinner-border" role="status" style="width: 3rem; height: 3rem;">
+            <span class="visually-hidden">Cargando...</span>
+        </div>
+    </div>
+</ng-template>

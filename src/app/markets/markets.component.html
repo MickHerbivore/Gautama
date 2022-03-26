@@ -1,5 +1,41 @@
-<div class="row row-cols-1 row-cols-xs-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 g-4">
-    <div class="col" *ngFor="let market of markets">
-        <app-market-card [market]="market"></app-market-card>
+<div *ngIf="markets.length; else loading">
+
+    <p class="h1">Las Criptomonedas más importantes</p>
+    <div class="row py-4">
+        <div class="col">
+            <form autocomplete="off" [formGroup]="searchForm" (submit)="buscar()">
+
+                <div class="form-group row">
+                    <div class="col-8">
+                        <input type="text" class="form-control" name="name" placeholder="Buscar por nombre..." formControlName="name">
+                    </div>
+                    <div class="d-grid gap-2 d-md-block col">
+                        <button [disabled]="searchForm.invalid" type="submit" class="btn btn-success btn-block">
+                            Buscar 
+                            <em class="fa-solid fa-magnifying-glass"></em>
+                        </button>
+                        <button [disabled]="searchForm.invalid" (click)="limpiarBusqueda()" type="button" class="btn btn-warning btn-block mx-2">
+                            Limpiar  
+                        </button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+
+    <div class="row row-cols-1 row-cols-xs-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 g-4">
+        <div class="col" *ngFor="let market of marketsResultado">
+            <app-market-card [market]="market"></app-market-card>
+        </div>
     </div>
 </div>
+
+<ng-template #loading>
+    <div class="d-flex justify-content-center m-5">
+        <div class="spinner-border" role="status" style="width: 3rem; height: 3rem;">
+            <span class="visually-hidden">Cargando...</span>
+        </div>
+    </div>
+</ng-template>

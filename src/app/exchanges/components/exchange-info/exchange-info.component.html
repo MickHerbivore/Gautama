@@ -1,0 +1,61 @@
+<div *ngIf="exchange.name ; else loading">
+    <div class="row">
+
+        <div class="card mb-3 border-0">
+            <div class="row g-0 ">
+                <div class="col-md-8 px-4">
+                    <div class="card-body">
+                        <img [src]="exchange.image" class="img-fluid rounded-start my-3" alt="...">
+                        <h1 class="card-title">{{ exchange.name }}</h1>
+
+                        <ul class="list-group list-group-flush">
+                            <li *ngIf="exchange.description" class="list-group-item">
+                                <p>{{ exchange.description }}</p>
+                            </li>
+                            <li *ngIf="exchange.url" class="list-group-item">
+                                <a [href]="exchange.url" class="card-link link-success" target="_blank" rel="noopener noreferrer"><em class="fa-solid fa-earth-americas"></em> Sitio oficial</a>
+                            </li>
+                            <li *ngIf="exchange.twitter_handle" class="list-group-item">
+                                <a [href]="'https://twitter.com/'+exchange.twitter_handle" class="card-link link-success" target="_blank" rel="noopener noreferrer"><em class="fa-brands fa-twitter"></em> Twitter</a>
+                            </li>
+                            <li *ngIf="exchange.reddit_url" class="list-group-item">
+                                <a [href]="exchange.reddit_url" class="card-link link-success" target="_blank" rel="noopener noreferrer"><em class="fa-brands fa-reddit"></em> Reddit</a>
+                            </li>
+                            <!-- <li *ngIf="exchange.links.repos_url.github[0]" class="list-group-item">
+                                <a [href]="exchange.links.repos_url.github[0]" class="card-link link-success" target="_blank" rel="noopener noreferrer"><em class="fa-brands fa-github"></em> Repositorio Git</a>
+                            </li> -->
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+            <hr>
+        </div>
+
+    </div>
+
+    <p class="h2 py-3">Mercados:</p>
+
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div *ngFor="let t of exchange.tickers">
+            <div class="col-sm-3" class="card text-center" style=" width: 18rem; ">
+                <div class="card-body ">
+                    <h5 class="card-title ">
+                        <a [routerLink]="[ '/markets/coin/', t.coin_id] ">{{ t.base }}</a> - {{ t.target }}
+                    </h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Último precio:</h6>
+                    <p class="card-text">{{ t.target }} {{ t.last | number }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<ng-template #loading>
+    <div class="d-flex justify-content-center m-5">
+        <div class="spinner-border " role="status " style="width: 3rem; height: 3rem; ">
+            <span class="visually-hidden ">Cargando...</span>
+        </div>
+    </div>
+</ng-template>

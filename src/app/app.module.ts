@@ -10,6 +10,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { registerLocaleData } from '@angular/common';
 import localeCl from '@angular/common/locales/es-CL';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 registerLocaleData(localeCl, 'cl')
 
 @NgModule({
@@ -26,7 +27,9 @@ registerLocaleData(localeCl, 'cl')
       domain: 'dev-w7nn53is.us.auth0.com',
       clientId: 'vxElN6FhcyH3yVESviojk6diYmR2fi4J'
     }),
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

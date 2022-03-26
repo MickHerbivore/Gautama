@@ -5,6 +5,7 @@ import { MarketsRoutingModule } from './markets-routing.module';
 import { MarketsComponent } from './markets.component';
 import { MarketCardComponent } from './components/market-card/market-card.component';
 import { CoinComponent } from './components/coin/coin.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -15,7 +16,9 @@ import { CoinComponent } from './components/coin/coin.component';
   ],
   imports: [
     CommonModule,
-    MarketsRoutingModule
+    MarketsRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class MarketsModule { }
