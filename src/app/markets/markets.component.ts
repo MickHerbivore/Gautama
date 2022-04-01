@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Market } from '../models/market.model';
 import { CoinGeckoService } from '../services/coin-gecko.service';
 
 @Component({
@@ -9,26 +9,10 @@ import { CoinGeckoService } from '../services/coin-gecko.service';
 })
 export class MarketsComponent implements OnInit {
 
-  markets = [
-    {
-      name: ''
-    }
-  ];
+  markets: Market[] = [];
+  marketsResultado: Market[] = [];
 
-  marketsResultado = [
-    {
-      name: ''
-    }
-  ];
-
-  searchForm: FormGroup = this.fb.group({
-    name: ['', [Validators.required, Validators.minLength(3)]]
-  });
-
-  constructor(
-    private coinGeckoService: CoinGeckoService,
-    private fb: FormBuilder
-  ) { }
+  constructor( private coinGeckoService: CoinGeckoService ) { }
 
   ngOnInit(): void {
     this.getMarkets();
@@ -37,22 +21,20 @@ export class MarketsComponent implements OnInit {
   getMarkets() {
     this.coinGeckoService.getMarkets().subscribe({
       next: (resp) => {
-        console.log(resp);
         this.markets = resp;
         this.marketsResultado = resp;
       }
     })
   }
 
-  buscar() {
+  buscar( termino: string ) {
     this.marketsResultado = this.markets.filter(market => {
-      return market.name.toLowerCase().includes(this.searchForm.get('name')?.value.toLowerCase());
+      return market.name.toLowerCase().includes(termino.toLowerCase());
     })
   }
 
   limpiarBusqueda() {
     this.marketsResultado = this.markets;
-    this.searchForm.controls['name'].setValue('');
   }
 
 }

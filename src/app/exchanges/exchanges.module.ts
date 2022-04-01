@@ -5,17 +5,19 @@ import { ExchangesRoutingModule } from './exchanges-routing.module';
 import { ExchangesComponent } from './exchanges.component';
 import { ExchangeCardComponent } from './components/exchange-card/exchange-card.component';
 import { ExchangeInfoComponent } from './components/exchange-info/exchange-info.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
   declarations: [
     ExchangesComponent,
     ExchangeCardComponent,
-    ExchangeInfoComponent
+    ExchangeInfoComponent,
   ],
   imports: [
     CommonModule,
-    ExchangesRoutingModule
+    ExchangesRoutingModule,
+    SharedModule
   ]
 })
 export class ExchangesModule { }

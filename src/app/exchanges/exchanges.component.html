@@ -1,7 +1,16 @@
 <div *ngIf="exchanges.length ; else loading">
-    <p class="h1">Las Criptomonedas más importantes</p>
+
+    <p class="h1">Los Exchanges más importantes</p>
+
+    <div class="row py-4">
+        <div class="col">
+            <app-search (buscarEvent)="buscar($event)" (limpiarEvent)="limpiarBusqueda()">
+            </app-search>
+        </div>
+    </div>
+
     <div class="row row-cols-1 row-cols-xs-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 g-4">
-        <div class="col" *ngFor="let exchange of exchanges">
+        <div class="col" *ngFor="let exchange of exchangesResultado">
             <app-exchange-card [exchange]="exchange"></app-exchange-card>
         </div>
     </div>

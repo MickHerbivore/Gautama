@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CoinGeckoService } from '../services/coin-gecko.service';
+import { Exchange } from '../models/exchange.model';
 
 @Component({
   selector: 'app-exchanges',
@@ -8,7 +9,8 @@ import { CoinGeckoService } from '../services/coin-gecko.service';
 })
 export class ExchangesComponent implements OnInit {
 
-  exchanges = [];
+  exchanges: Exchange[] = [];
+  exchangesResultado: Exchange[] = [];
 
   constructor( private coinGeckoService: CoinGeckoService ) { }
 
@@ -19,10 +21,20 @@ export class ExchangesComponent implements OnInit {
   getExchanges() {
     this.coinGeckoService.getExchanges().subscribe({
       next: (resp) => {
-        console.log(resp);
         this.exchanges = resp;
+        this.exchangesResultado = resp;
       }
     })
+  }
+
+  buscar( termino: string ) {
+    this.exchangesResultado = this.exchanges.filter(exchange => {
+      return exchange.name.toLowerCase().includes(termino.toLowerCase());
+    })
+  }
+
+  limpiarBusqueda() {
+    this.exchangesResultado = this.exchanges;
   }
 
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Coin } from 'src/app/models/coin.model';
 import { CoinGeckoService } from '../../../services/coin-gecko.service';
 
 @Component({
@@ -10,7 +11,7 @@ import { CoinGeckoService } from '../../../services/coin-gecko.service';
 export class CoinComponent implements OnInit {
 
   id: string = '';
-  coin = {
+  coin: Coin = {
     name: '',
     description: {
       en: ''
@@ -53,11 +54,7 @@ export class CoinComponent implements OnInit {
 
   getCoin() {
     this.coinGeckoService.getCoin(this.id).subscribe({
-      next: (resp) => {
-        this.coin = resp;
-        console.log(this.coin);
-        
-      },
+      next: (resp) => this.coin = resp,
       error: () => this.router.navigate(['/markets'])
     })
   }

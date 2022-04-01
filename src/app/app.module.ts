@@ -10,7 +10,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { registerLocaleData } from '@angular/common';
 import localeCl from '@angular/common/locales/es-CL';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from './shared/shared.module';
 registerLocaleData(localeCl, 'cl')
 
 @NgModule({
@@ -18,7 +18,7 @@ registerLocaleData(localeCl, 'cl')
     AppComponent,
     HomeComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,8 +28,7 @@ registerLocaleData(localeCl, 'cl')
       clientId: 'vxElN6FhcyH3yVESviojk6diYmR2fi4J'
     }),
     HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

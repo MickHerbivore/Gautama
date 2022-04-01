@@ -41,7 +41,7 @@
             <div class="card text-center border-warning mb-3" style="max-width: 18rem;">
                 <div class="card-body text-dark">
                     <h3 class="card-title">CLP</h3>
-                    <p class="card-text h2 text-success">{{ coin.market_data.current_price.clp | currency:'CLP':'symbol-narrow':'1.0-0':'cl' }}</p>
+                    <p class="card-text h2 text-success">{{ coin.market_data.current_price.clp | currency:'CLP':'symbol-narrow':'1.0-10':'cl' }}</p>
                 </div>
             </div>
 
@@ -52,7 +52,7 @@
             <div class="card text-center border-warning mb-3" style="max-width: 18rem;">
                 <div class="card-body text-dark">
                     <h3 class="card-title">USD</h3>
-                    <p class="card-text h2 text-success">{{ coin.market_data.current_price.usd | currency:'USD':'symbol-narrow':'1.0-10' }}</p>
+                    <p class="card-text h2 text-success">{{ coin.market_data.current_price.usd | currency:'USD':'symbol-narrow':'1.0-10':'cl' }}</p>
                 </div>
             </div>
 
@@ -63,7 +63,7 @@
             <div class="card text-center border-warning mb-3" style="max-width: 18rem;">
                 <div class="card-body text-dark">
                     <h3 class="card-title">EUR</h3>
-                    <p class="card-text h2 text-success">{{ coin.market_data.current_price.eur | currency:'EUR':'symbol-narrow':'1.0-10' }}</p>
+                    <p class="card-text h2 text-success">{{ coin.market_data.current_price.eur | currency:'EUR':'symbol-narrow':'1.0-10':'cl' }}</p>
                 </div>
             </div>
 
@@ -74,7 +74,7 @@
             <div class="card text-center border-warning mb-3" style="max-width: 18rem;">
                 <div class="card-body text-dark">
                     <h3 class="card-title">CAD</h3>
-                    <p class="card-text h2 text-success">{{ coin.market_data.current_price.cad | currency:'CAD':'symbol-narrow':'1.0-10' }}</p>
+                    <p class="card-text h2 text-success">{{ coin.market_data.current_price.cad | currency:'CAD':'symbol-narrow':'1.0-10':'cl' }}</p>
                 </div>
             </div>
 
@@ -82,8 +82,6 @@
     </div>
 </div>
 
-
-<!-- <p [innerHtml]="coin.description.en" class="card-text"></p> -->
 
 <ng-template #loading>
     <div class="d-flex justify-content-center m-5">

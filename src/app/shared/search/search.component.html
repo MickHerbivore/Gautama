@@ -1,0 +1,18 @@
+<form autocomplete="off" [formGroup]="searchForm" (submit)="buscar()">
+
+    <div class="form-group row">
+        <div class="col-8">
+            <input type="text" class="form-control" name="name" placeholder="Buscar por nombre..." formControlName="name">
+        </div>
+        <div class="d-grid gap-2 d-md-block col">
+            <button [disabled]="searchForm.invalid" type="submit" class="btn btn-success btn-block">
+                Buscar 
+                <em class="fa-solid fa-magnifying-glass"></em>
+            </button>
+            <button [disabled]="searchForm.invalid" (click)="limpiarBusqueda()" type="button" class="btn btn-warning btn-block mx-2">
+                Limpiar  
+            </button>
+        </div>
+    </div>
+
+</form>

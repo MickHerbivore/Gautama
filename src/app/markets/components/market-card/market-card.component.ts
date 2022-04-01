@@ -7,17 +7,11 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class MarketCardComponent implements OnInit {
 
-  @Input() market: any = {
-    id: null,
-    name: '',
-    image: ''
-  };
+  @Input() market: any = {};
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-    
-  }
+  ngOnInit(): void {}
 
   
 
