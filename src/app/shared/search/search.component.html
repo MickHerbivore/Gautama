@@ -1,11 +1,11 @@
 <form autocomplete="off" [formGroup]="searchForm" (submit)="buscar()">
 
-    <div class="form-group row">
-        <div class="col-8">
+    <div class="form-group g-3 row">
+        <div class="col-md-8">
             <input type="text" class="form-control" name="name" placeholder="Buscar por nombre..." formControlName="name">
         </div>
-        <div class="d-grid gap-2 d-md-block col">
-            <button [disabled]="searchForm.invalid" type="submit" class="btn btn-success btn-block">
+        <div class="col d-grid gap-2 d-md-block">
+            <button [disabled]="searchForm.invalid" type="submit" class="btn btn-success btn-block mx-2">
                 Buscar 
                 <em class="fa-solid fa-magnifying-glass"></em>
             </button>
