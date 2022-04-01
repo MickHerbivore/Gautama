@@ -25,7 +25,9 @@ registerLocaleData(localeCl, 'cl')
     AppRoutingModule,
     AuthModule.forRoot({
       domain: 'dev-w7nn53is.us.auth0.com',
-      clientId: '3YFoQZdxaYs3Cj3QCZwEsdnYCCfyiQMp'
+      clientId: 'vxElN6FhcyH3yVESviojk6diYmR2fi4J',
+      // clientId: '3YFoQZdxaYs3Cj3QCZwEsdnYCCfyiQMp',
+      redirectUri: window.location.origin
     }),
     HttpClientModule,
     SharedModule
