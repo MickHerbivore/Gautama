@@ -21,10 +21,7 @@ export class HomeComponent implements OnInit {
     ]
   };
 
-  constructor( public auth: AuthService, private coinGeckoService: CoinGeckoService ) {
-    console.log(auth);
-    
-   }
+  constructor( public auth: AuthService, private coinGeckoService: CoinGeckoService ) {}
 
   ngOnInit(): void {
     this.getTrendingCoins();    

@@ -45,11 +45,7 @@ export class ExchangeInfoComponent implements OnInit {
 
   getExchange() {
     this.coinGeckoService.getExchange(this.id).subscribe({
-      next: (resp) => {
-        this.exchange = resp;
-        console.log(this.exchange);
-        
-      },
+      next: (resp) => this.exchange = resp,
       error: () => this.router.navigate(['/exchanges'])
     })
   }
