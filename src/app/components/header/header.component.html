@@ -2,18 +2,18 @@
     <div class="container-fluid">
         <a class="navbar-brand" href="#">{{ title }}</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+            <span class="navbar-toggler-icon"></span>
+        </button>
         <div class="collapse navbar-collapse" id="navbarColor01">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li *ngIf="auth.isAuthenticated$ | async" class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link active" aria-current="page" href="#" data-bs-toggle="collapse" data-bs-target="#navbarColor01">Home</a>
                 </li>
                 <li *ngIf="auth.isAuthenticated$ | async" class="nav-item">
-                    <a class="nav-link" routerLink="/markets">Monedas</a>
+                    <a class="nav-link" routerLink="/markets" data-bs-toggle="collapse" data-bs-target="#navbarColor01">Monedas</a>
                 </li>
                 <li *ngIf="auth.isAuthenticated$ | async" class="nav-item">
-                    <a class="nav-link" routerLink="/exchanges">Exchanges</a>
+                    <a class="nav-link" routerLink="/exchanges" data-bs-toggle="collapse" data-bs-target="#navbarColor01">Exchanges</a>
                 </li>
             </ul>
 
