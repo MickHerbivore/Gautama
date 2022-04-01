@@ -21,9 +21,6 @@
                             <li *ngIf="exchange.reddit_url" class="list-group-item">
                                 <a [href]="exchange.reddit_url" class="card-link link-success" target="_blank" rel="noopener noreferrer"><em class="fa-brands fa-reddit"></em> Reddit</a>
                             </li>
-                            <!-- <li *ngIf="exchange.links.repos_url.github[0]" class="list-group-item">
-                                <a [href]="exchange.links.repos_url.github[0]" class="card-link link-success" target="_blank" rel="noopener noreferrer"><em class="fa-brands fa-github"></em> Repositorio Git</a>
-                            </li> -->
                         </ul>
 
                     </div>
@@ -38,7 +35,7 @@
 
     <div class="row row-cols-1 row-cols-md-3 g-4">
         <div *ngFor="let t of exchange.tickers">
-            <div class="col-sm-3" class="card text-center" style=" width: 18rem; ">
+            <div class="col-sm-3" class="card text-center">
                 <div class="card-body ">
                     <h5 class="card-title ">
                         <a [routerLink]="[ '/markets/coin/', t.coin_id] ">{{ t.base }}</a> - {{ t.target }}
