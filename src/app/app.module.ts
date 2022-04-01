@@ -29,7 +29,7 @@ registerLocaleData(localeCl, 'cl')
       // clientId: 'vxElN6FhcyH3yVESviojk6diYmR2fi4J',
       //https://github.com/MickHerbivore/Gautama
       clientId: '3YFoQZdxaYs3Cj3QCZwEsdnYCCfyiQMp',
-      redirectUri: window.location.origin
+      redirectUri: '/home',
     }),
     HttpClientModule,
     SharedModule
