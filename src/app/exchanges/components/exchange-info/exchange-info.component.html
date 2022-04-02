@@ -50,9 +50,11 @@
 </div>
 
 <ng-template #loading>
-    <div class="d-flex justify-content-center m-5">
-        <div class="spinner-border " role="status " style="width: 3rem; height: 3rem; ">
-            <span class="visually-hidden ">Cargando...</span>
+    <div class="position-relative" style="height: 80vh;">
+        <div class="position-absolute top-50 start-50 translate-middle">
+            <div class="spinner-border" role="status" style="width: 3rem; height: 3rem;">
+                <span class="visually-hidden">Cargando...</span>
+            </div>
         </div>
     </div>
 </ng-template>

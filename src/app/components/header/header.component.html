@@ -7,7 +7,7 @@
         <div class="collapse navbar-collapse" id="navbarColor01">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li *ngIf="auth.isAuthenticated$ | async" class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#" data-bs-toggle="collapse" data-bs-target="#navbarColor01">Home</a>
+                    <a class="nav-link active" routerLink="/home" aria-current="page" href="#" data-bs-toggle="collapse" data-bs-target="#navbarColor01">Home</a>
                 </li>
                 <li *ngIf="auth.isAuthenticated$ | async" class="nav-item">
                     <a class="nav-link" routerLink="/markets" data-bs-toggle="collapse" data-bs-target="#navbarColor01">Monedas</a>
