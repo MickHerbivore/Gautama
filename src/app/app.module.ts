@@ -25,11 +25,11 @@ registerLocaleData(localeCl, 'cl')
     AppRoutingModule,
     AuthModule.forRoot({
       domain: 'dev-w7nn53is.us.auth0.com',
-      //local
-      // clientId: 'vxElN6FhcyH3yVESviojk6diYmR2fi4J',
-      //https://github.com/MickHerbivore/Gautama
-      clientId: '3YFoQZdxaYs3Cj3QCZwEsdnYCCfyiQMp',
-      redirectUri: 'https://mickherbivore.github.io/Gautama/',
+      //LOCAL
+      clientId: 'vxElN6FhcyH3yVESviojk6diYmR2fi4J',
+      //GITHUB PAGES: https://github.com/MickHerbivore/Gautama
+      // clientId: '3YFoQZdxaYs3Cj3QCZwEsdnYCCfyiQMp',      
+      // redirectUri: 'https://mickherbivore.github.io/Gautama/',
     }),
     HttpClientModule,
     SharedModule
