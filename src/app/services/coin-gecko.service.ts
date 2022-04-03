@@ -1,6 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Coin } from '../models/coin.model';
+import { Exchange } from '../models/exchange.model';
+import { Market } from '../models/market.model';
+import { RespTrendingCoins } from '../models/resp-trending-coins.model';
 
 @Injectable({
   providedIn: 'root'
@@ -22,8 +26,8 @@ export class CoinGeckoService {
    * Obtiene lista de criptomonedas
    * @returns 
    */
-  getMarkets(): Observable<any> {
-    return this.http.get(`${ this.baseUrl }${ this.marketsUri }?vs_currency=${ this.currency }`);
+  getMarkets(): Observable<Market[]> {
+    return this.http.get<Market[]>(`${ this.baseUrl }${ this.marketsUri }?vs_currency=${ this.currency }`);
   }
 
   /**
@@ -31,16 +35,16 @@ export class CoinGeckoService {
    * @param id 
    * @returns 
    */
-  getCoin( id: string ): Observable<any> {
-    return this.http.get(`${ this.baseUrl }${ this.coinsUri }${ id }`);
+  getCoin( id: string ): Observable<Coin> {
+    return this.http.get<Coin>(`${ this.baseUrl }${ this.coinsUri }${ id }`);
   }
 
   /**
    * Obtiene lista de exchanges
    * @returns
    */
-  getExchanges(): Observable<any> {
-    return this.http.get(`${ this.baseUrl }${ this.exchanges }`);
+  getExchanges(): Observable<Exchange[]> {
+    return this.http.get<Exchange[]>(`${ this.baseUrl }${ this.exchanges }`);
   }
 
   /**
@@ -48,8 +52,8 @@ export class CoinGeckoService {
    * @param id 
    * @returns 
    */
-   getExchange( id: string ): Observable<any> {
-    return this.http.get(`${ this.baseUrl }${ this.exchanges }${ id }`);
+   getExchange( id: string ): Observable<Exchange> {
+    return this.http.get<Exchange>(`${ this.baseUrl }${ this.exchanges }${ id }`);
   }
 
   /**
@@ -57,7 +61,7 @@ export class CoinGeckoService {
    * @param id 
    * @returns 
    */
-   getTrendingCoins(): Observable<any> {
-    return this.http.get(`${ this.baseUrl }${ this.search }${ this.trending }`);
+   getTrendingCoins(): Observable<RespTrendingCoins> {
+    return this.http.get<RespTrendingCoins>(`${ this.baseUrl }${ this.search }${ this.trending }`);
   }
 }

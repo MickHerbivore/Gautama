@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '@auth0/auth0-angular';
 import { CoinGeckoService } from '../../services/coin-gecko.service';
+import { RespTrendingCoins } from '../../models/resp-trending-coins.model';
 
 @Component({
   selector: 'app-home',
@@ -9,17 +10,7 @@ import { CoinGeckoService } from '../../services/coin-gecko.service';
 })
 export class HomeComponent implements OnInit {
 
-  trendingCoins = {
-    coins: [
-      {
-        item: {
-          id: '',
-          name: '',
-          small: ''
-        }
-      }
-    ]
-  };
+  trendingCoins = {} as RespTrendingCoins;
 
   constructor( public auth: AuthService, private coinGeckoService: CoinGeckoService ) {}
 

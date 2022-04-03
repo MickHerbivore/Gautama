@@ -11,11 +11,13 @@ export class SearchComponent implements OnInit {
   @Output() buscarEvent = new EventEmitter<string>();
   @Output() limpiarEvent = new EventEmitter();
 
-  searchForm: FormGroup = this.fb.group({
-    name: ['', [Validators.required, Validators.minLength(3)]]
-  });
+  searchForm: FormGroup;
 
-  constructor( private fb: FormBuilder ) { }
+  constructor( private fb: FormBuilder ) {
+    this.searchForm = this.fb.group({
+      name: ['', [Validators.required, Validators.minLength(3)]]
+    });
+  }
 
   ngOnInit(): void {
   }

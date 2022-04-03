@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Market } from 'src/app/models/market.model';
 
 @Component({
   selector: 'app-market-card',
@@ -7,7 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class MarketCardComponent implements OnInit {
 
-  @Input() market: any = {};
+  @Input() market = {} as Market;
 
   constructor() {}
 

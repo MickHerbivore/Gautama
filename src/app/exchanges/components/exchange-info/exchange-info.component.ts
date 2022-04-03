@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CoinGeckoService } from 'src/app/services/coin-gecko.service';
+import { Exchange } from '../../../models/exchange.model';
 
 @Component({
   selector: 'app-exchange-info',
@@ -10,23 +11,7 @@ import { CoinGeckoService } from 'src/app/services/coin-gecko.service';
 export class ExchangeInfoComponent implements OnInit {
 
   id: string = '';
-
-  exchange = {
-    name: '',
-    description: '',
-    image: '',
-    url: '',
-    twitter_handle: '',
-    reddit_url: '',
-    tickers: [
-      {
-        coin_id: '',
-        base: '',
-        target: '',
-        last: ''
-      }
-    ]
-  };
+  exchange = {} as Exchange;
 
   constructor(
     private activatedRoute: ActivatedRoute,

@@ -11,31 +11,7 @@ import { CoinGeckoService } from '../../../services/coin-gecko.service';
 export class CoinComponent implements OnInit {
 
   id: string = '';
-  coin: Coin = {
-    name: '',
-    description: {
-      en: ''
-    },
-    links: {
-      homepage: [],
-      official_forum_url: [],
-      repos_url: {
-        bitbucket: [],
-        github: []
-      }
-    },
-    image: {
-      large: ''
-    },
-    market_data: {
-      current_price: {
-        clp: '',
-        usd: '',
-        eur: '',
-        cad: ''
-      }
-    }
-  };
+  coin = {} as Coin;
 
   constructor(
     private activatedRoute: ActivatedRoute,

@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Exchange } from 'src/app/models/exchange.model';
 
 @Component({
   selector: 'app-exchange-card',
@@ -7,12 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ExchangeCardComponent implements OnInit {
 
-  @Input() exchange: any = {
-    id: null,
-    name: '',
-    url: '',
-    image: ''
-  }
+  @Input() exchange = {} as Exchange;
 
   constructor() { }
 
