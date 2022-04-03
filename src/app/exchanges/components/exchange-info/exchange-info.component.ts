@@ -35,7 +35,8 @@ export class ExchangeInfoComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe({
+    this.activatedRoute.queryParams
+    .subscribe({
       next: (params) => {
         this.id = params['id'];
         this.getExchange();

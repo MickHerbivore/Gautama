@@ -34,14 +34,14 @@
     <p class="h2 py-3">Mercados:</p>
 
     <div class="row row-cols-1 row-cols-md-3 g-4">
-        <div *ngFor="let t of exchange.tickers">
+        <div *ngFor="let ticker of exchange.tickers">
             <div class="col-sm-3" class="card text-center">
                 <div class="card-body ">
                     <h5 class="card-title ">
-                        <a [routerLink]="[ '/markets/coin/', t.coin_id] ">{{ t.base }}</a> - {{ t.target }}
+                        <a [routerLink]="[ '/markets/coin/'] " [queryParams]="{ id: ticker.coin_id }">{{ ticker.base }}</a> - {{ ticker.target }}
                     </h5>
                     <h6 class="card-subtitle mb-2 text-muted">Último precio:</h6>
-                    <p class="card-text">{{ t.target }} {{ t.last | number }}</p>
+                    <p class="card-text">{{ ticker.target }} {{ ticker.last | number }}</p>
                 </div>
             </div>
         </div>

@@ -11,7 +11,7 @@
             <div class="card-body">
                 <img [src]="coin.item.small" class="card-img-top px-3" alt="..." style="width: 5rem;">
                 <span class="card-text">{{ coin.item.name }}</span>
-                <a *ngIf="auth.user$ | async" [routerLink]="['/markets/coin/', coin.item.id]" class="btn btn-success align-self-end float-end">Más Info</a>
+                <a *ngIf="auth.user$ | async" [routerLink]="['/markets/coin/']" [queryParams]="{ id: coin.item.id }" class="btn btn-success align-self-end float-end">Más Info</a>
             </div>
         </div>
     </div>

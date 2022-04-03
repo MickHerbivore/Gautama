@@ -5,7 +5,8 @@ import { ExchangeInfoComponent } from './components/exchange-info/exchange-info.
 
 const routes: Routes = [
   { path: '', component: ExchangesComponent },
-  { path: ':id', component: ExchangeInfoComponent }
+  { path: 'info', component: ExchangeInfoComponent },
+  { path: '**', redirectTo: '/', pathMatch: 'full' }
 ];
 
 @NgModule({

@@ -5,8 +5,8 @@ import { CoinComponent } from './components/coin/coin.component';
 
 const routes: Routes = [
   { path: '', component: MarketsComponent },
-  { path: 'coin/:id', component: CoinComponent },
-  { path: '**', redirectTo: '/', pathMatch: 'full' },
+  { path: 'coin', component: CoinComponent },
+  { path: '**', redirectTo: '/', pathMatch: 'full' }
 ];
 
 @NgModule({

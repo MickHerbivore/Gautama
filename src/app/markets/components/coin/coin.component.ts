@@ -44,7 +44,8 @@ export class CoinComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe({
+    this.activatedRoute.queryParams
+    .subscribe({
       next: (params) => {
         this.id = params['id'];
         this.getCoin();
